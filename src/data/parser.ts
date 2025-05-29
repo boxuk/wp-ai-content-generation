@@ -10,9 +10,6 @@ import type { ComponentParser } from './types';
 export const parse: ComponentParser = ( component ) =>
 	createBlock(
 		component.name,
-		component.attributes.reduce(
-			( acc, { name, value } ) => ( { ...acc, [ name ]: value } ),
-			{}
-		),
+		component.attributes,
 		component.innerBlocks?.map( parse )
 	);
