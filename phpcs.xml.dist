@@ -23,6 +23,8 @@
 	<rule ref="WordPress-VIP-Go">
 		<exclude name="WordPressVIPMinimum.JS" />
 		<exclude name="Generic.Functions.CallTimePassByReference" />
+		<exclude name="Squiz.PHP.CommentedOutCode.Found" />
+		<exclude name="Squiz.Commenting.InlineComment" />
 	</rule>
 	<rule ref="WordPress-Docs" />
 	<rule ref="WordPress-Extra" />

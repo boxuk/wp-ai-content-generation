@@ -222,7 +222,7 @@ class Model {
 	 * @throws \Exception If the response from the AI service is invalid or the components format is incorrect.
 	 */
 	public function generate_components(): void {
-		$schema   = json_decode( file_get_contents( __DIR__ . '/schema/ui.schema.json' ) ?: '{}' ); // phpcs:ignore Universal.Operators.DisallowShortTernary.Found
+		$schema   = ( new SchemaGenerator() )->generate();
 		$messages = array(
 			array(
 				'role'    => 'system',
@@ -260,6 +260,10 @@ class Model {
 		set_transient( self::PREFIX . $this->id . '_content_analysis', $this->content_analysis, 12 * HOUR_IN_SECONDS );
 		set_transient( self::PREFIX . $this->id . '_intent_analysis', $this->intent_analysis, 12 * HOUR_IN_SECONDS );
 		set_transient( self::PREFIX . $this->id . '_components', $this->components, 12 * HOUR_IN_SECONDS );
+		if ( class_exists( 'WP_CLI' ) ) { 
+			// if we're running in WP-CLI, we don't need to update the status.
+			return;
+		}
 		$this->get_status(); // Update the status based on the current state of the model.
 	}
 
@@ -317,12 +321,14 @@ class Model {
 	/**
 	 * Get the available components (blocks) in WordPress.
 	 *
-	 * @return array
+	 * @return array{
+	 *     name: string,
+	 *     description: string,
+	 *     attributes: array<string, mixed>
+	 * }
 	 */
-	private function get_available_components(): array { 
-		$block_registry   = \WP_Block_Type_Registry::get_instance();
-		$available_blocks = $block_registry->get_all_registered();
-		$components       = array_map(
+	private function get_available_components(): array {
+		return array_map(
 			function ( \WP_Block_Type $block ) {
 				return array(
 					'name'        => $block->name,
@@ -330,8 +336,7 @@ class Model {
 					'attributes'  => $block->attributes,
 				);
 			},
-			$available_blocks
+			SchemaGenerator::get_blocks()
 		);
-		return $components; 
 	}
 }
