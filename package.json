@@ -43,7 +43,7 @@
 		"@wordpress/scripts": "^30.12.1"
 	},
 	"dependencies": {
-		"openai": "^4.103.0",
+		"openai": "^5.5.0",
 		"react": "^18.3.1"
 	}
 }
