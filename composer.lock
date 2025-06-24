@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b073e67c53f263de89c7a83cc1af1ce7",
+    "content-hash": "ffb2ef6bae0a2dc55e7ce368d8fdc64f",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -148,16 +148,16 @@
         },
         {
             "name": "openai-php/client",
-            "version": "v0.13.0",
+            "version": "v0.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/openai-php/client.git",
-                "reference": "399229860cea244843753bf1d9c28aee0e74c3a6"
+                "reference": "c176c964902272649c10f092e2513bc12179161f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openai-php/client/zipball/399229860cea244843753bf1d9c28aee0e74c3a6",
-                "reference": "399229860cea244843753bf1d9c28aee0e74c3a6",
+                "url": "https://api.github.com/repos/openai-php/client/zipball/c176c964902272649c10f092e2513bc12179161f",
+                "reference": "c176c964902272649c10f092e2513bc12179161f",
                 "shasum": ""
             },
             "require": {
@@ -219,7 +219,7 @@
             ],
             "support": {
                 "issues": "https://github.com/openai-php/client/issues",
-                "source": "https://github.com/openai-php/client/tree/v0.13.0"
+                "source": "https://github.com/openai-php/client/tree/v0.14.0"
             },
             "funding": [
                 {
@@ -235,7 +235,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-05-14T21:43:59+00:00"
+            "time": "2025-06-24T10:49:48+00:00"
         },
         {
             "name": "php-http/discovery",
@@ -1965,10 +1965,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
