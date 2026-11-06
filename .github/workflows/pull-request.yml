@@ -21,6 +21,8 @@ jobs:
         with:
           coverage: pcov
           tools: composer
+        env:
+          UPDATE: true
 
       - name: Install dependencies
         run: |
